@@ -183,10 +183,10 @@ function initBookingWizard() {
       // Generate Reference Code
       state.bookingId = 'KP-' + Math.floor(10000 + Math.random() * 90000);
 
-      // ============================================
+            // ============================================
       // EMAIL BHEJNE KA CODE (FORMSUBMIT AJAX)
       // ============================================
-      fetch("https://formsubmit.co/ajax/8a9b7c6d5e4f3g2h1i0j/nizamudin1804@gmail.com", {
+      fetch("https://formsubmit.co/ajax/nizamudin1804@gmail.com", {
           method: "POST",
           headers: { 
               'Content-Type': 'application/json',
@@ -210,7 +210,6 @@ function initBookingWizard() {
       .then(data => console.log("Email sent to clinic successfully:", data))
       .catch(error => console.error("Email sending failed:", error));
       // ============================================
-
       // Save to LocalStorage
       const appointments = JSON.parse(localStorage.getItem('kp_appointments') || '[]');
       appointments.unshift({
