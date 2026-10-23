@@ -184,51 +184,43 @@ function initBookingWizard() {
       state.bookingId = 'KP-' + Math.floor(10000 + Math.random() * 90000);
 
       // ============================================
-      // EMAIL BHEJNE KA CODE (FORMSUBMIT AJAX) - SAHI KIYA GAYA
+      // EMAIL NOTIFICATION — FormSubmit (no backend needed)
+      // First submission: FormSubmit sends a one-time activation email
+      // to nizamudin1804@gmail.com — click "Confirm" in that email.
+      // All subsequent submissions arrive directly in the inbox.
       // ============================================
-      const emailData = {
-        _subject: `New Appointment Booked: ${state.bookingId}`,
-        Booking_ID: state.bookingId,
-        Patient_Name: state.patient.name,
+      const emailPayload = {
+        _subject: `🏥 New KineticPulse Appointment — ${state.bookingId}`,
+        _template: 'table',
+        _captcha: 'false',
+        Booking_Reference: state.bookingId,
+        Patient_Name:  state.patient.name,
         Patient_Phone: state.patient.phone,
         Patient_Email: state.patient.email,
-        Service: state.service.name,
-        Doctor: state.doctor.name,
-        Date: state.date,
-        Time: state.time,
-        Pain_Area: state.patient.painArea,
-        Pain_Level: state.patient.painLevel,
-        Insurance: state.patient.insurance,
-        Notes: state.patient.notes
+        Service:       state.service.name,
+        Doctor:        state.doctor.name,
+        Appointment_Date: state.date,
+        Appointment_Time: state.time,
+        Pain_Area:     state.patient.painArea,
+        Pain_Level:    `${state.patient.painLevel} / 10`,
+        Insurance:     state.patient.insurance,
+        Notes:         state.patient.notes || 'None'
       };
 
-      console.log('Sending email with data:', emailData);
-
-      fetch("https://formsubmit.co/ajax/nizamudin1804@gmail.com", {
-        method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(emailData)
+      fetch('https://formsubmit.co/ajax/nizamudin1804@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(emailPayload)
       })
-      .then(response => {
-        console.log('FormSubmit response status:', response.status);
-        return response.json();
-      })
+      .then(res => res.json())
       .then(data => {
-        console.log("Email sent to clinic successfully:", data);
         if (data.success) {
-          window.showToast('Email Sent!', 'Confirmation email sent to clinic.', 'success');
+          console.log('%c✅ Appointment email sent to clinic!', 'color: teal; font-weight: bold');
         } else {
           console.warn('FormSubmit response:', data);
         }
       })
-      .catch(error => {
-        console.error("Email sending failed:", error);
-        // Email fail ho jaye toh bhi booking confirm karein
-        window.showToast('Note', 'Booking saved locally. Email notification may be delayed.', 'warning');
-      });
+      .catch(err => console.error('❌ Email notification failed:', err));
       // ============================================
 
       // Save to LocalStorage
