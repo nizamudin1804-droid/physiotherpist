@@ -183,33 +183,54 @@ function initBookingWizard() {
       // Generate Reference Code
       state.bookingId = 'KP-' + Math.floor(10000 + Math.random() * 90000);
 
-            // ============================================
-      // EMAIL BHEJNE KA CODE (FORMSUBMIT AJAX)
       // ============================================
+      // EMAIL BHEJNE KA CODE (FORMSUBMIT AJAX) - SAHI KIYA GAYA
+      // ============================================
+      const emailData = {
+        _subject: `New Appointment Booked: ${state.bookingId}`,
+        Booking_ID: state.bookingId,
+        Patient_Name: state.patient.name,
+        Patient_Phone: state.patient.phone,
+        Patient_Email: state.patient.email,
+        Service: state.service.name,
+        Doctor: state.doctor.name,
+        Date: state.date,
+        Time: state.time,
+        Pain_Area: state.patient.painArea,
+        Pain_Level: state.patient.painLevel,
+        Insurance: state.patient.insurance,
+        Notes: state.patient.notes
+      };
+
+      console.log('Sending email with data:', emailData);
+
       fetch("https://formsubmit.co/ajax/nizamudin1804@gmail.com", {
-          method: "POST",
-          headers: { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-              _subject: `New Appointment Booked: ${state.bookingId}`,
-              Booking_ID: state.bookingId,
-              Patient_Name: state.patient.name,
-              Patient_Phone: state.patient.phone,
-              Patient_Email: state.patient.email,
-              Service: state.service.name,
-              Doctor: state.doctor.name,
-              Date: state.date,
-              Time: state.time,
-              Pain_Area: state.patient.painArea,
-              Pain_Level: state.patient.painLevel
-          })
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(emailData)
       })
-      .then(response => response.json())
-      .then(data => console.log("Email sent to clinic successfully:", data))
-      .catch(error => console.error("Email sending failed:", error));
+      .then(response => {
+        console.log('FormSubmit response status:', response.status);
+        return response.json();
+      })
+      .then(data => {
+        console.log("Email sent to clinic successfully:", data);
+        if (data.success) {
+          window.showToast('Email Sent!', 'Confirmation email sent to clinic.', 'success');
+        } else {
+          console.warn('FormSubmit response:', data);
+        }
+      })
+      .catch(error => {
+        console.error("Email sending failed:", error);
+        // Email fail ho jaye toh bhi booking confirm karein
+        window.showToast('Note', 'Booking saved locally. Email notification may be delayed.', 'warning');
+      });
       // ============================================
+
       // Save to LocalStorage
       const appointments = JSON.parse(localStorage.getItem('kp_appointments') || '[]');
       appointments.unshift({
