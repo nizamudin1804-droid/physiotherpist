@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Online Consultation & Appointment | KineticPulse Physiotherapy</title>
+  <meta name="description" content="Book your 60-minute physiotherapy assessment online. Select your clinician, choose a time slot, and receive instant confirmation. No doctor referral needed.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-teal-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-4 text-[11px] sm:text-xs">
+        <span class="flex items-center gap-1.5 text-teal-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+          Live Real-Time Online Booking Portal
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] sm:text-xs">
+        <a href="tel:+18005557497" class="hover:text-teal-400 transition flex items-center gap-1 font-semibold text-white">
+          <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          (800) 555-PHYS
+        </a>
+        <button class="open-appointments-drawer relative flex items-center gap-1.5 px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-teal-300 rounded-md transition font-medium">
+          <span>My Sessions</span>
+          <span class="my-appointments-count hidden w-4 h-4 rounded-full bg-teal-500 text-white text-[10px] font-bold flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-40 glass-nav shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-teal-700 to-teal-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <div>
+            <span class="text-xl font-extrabold text-slate-900 tracking-tight font-heading flex items-center gap-1">Kinetic<span class="text-teal-600">Pulse</span></span>
+            <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest -mt-1">Physiotherapy Clinic</span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+          <a href="index.html" class="hover:text-teal-600 transition">Home</a>
+          <a href="services.html" class="hover:text-teal-600 transition">Services & Treatments</a>
+          <a href="conditions.html" class="hover:text-teal-600 transition">Conditions Treated</a>
+          <a href="about.html" class="hover:text-teal-600 transition">About Our Team</a>
+          <a href="exercises.html" class="hover:text-teal-600 transition">Rehab Exercises</a>
+          <a href="case-studies.html" class="hover:text-teal-600 transition">Recovery Stories</a>
+          <a href="pricing.html" class="hover:text-teal-600 transition">Pricing & Insurance</a>
+          <a href="blog.html" class="hover:text-teal-600 transition">Blog</a>
+          <a href="contact.html" class="hover:text-teal-600 transition">Contact</a>
+        </nav>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <span class="text-xs font-semibold px-3 py-1.5 bg-emerald-100 text-emerald-800 rounded-lg">
+            ✓ SSL 256-Bit Encrypted
+          </span>
+        </div>
+
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 hover:text-slate-900">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden"></div>
+  <div id="mobile-menu" class="fixed top-0 right-0 w-80 max-w-full h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
+    <div class="p-6 overflow-y-auto">
+      <div class="flex items-center justify-between pb-6 border-b border-slate-100">
+        <span class="font-bold text-slate-900 font-heading">KineticPulse Physio</span>
+        <button id="close-mobile-menu" class="p-1.5 text-slate-400 hover:text-slate-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <nav class="mt-6 flex flex-col gap-3 text-sm font-semibold text-slate-700">
+        <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Home</a>
+        <a href="services.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Services & Treatments</a>
+        <a href="conditions.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Conditions Treated</a>
+        <a href="about.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">About Our Specialists</a>
+        <a href="exercises.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Rehab Exercises</a>
+        <a href="case-studies.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Clinical Case Studies</a>
+        <a href="pricing.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Pricing & Insurance</a>
+        <a href="contact.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Locations & Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- BOOKING WIZARD HEADER & PROGRESS -->
+  <section class="mesh-bg py-10 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="px-3 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded-full uppercase tracking-wider">
+          Online Appointment Scheduler
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading tracking-tight mt-2">
+          Schedule Your Clinical Consultation
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Instant confirmation • No doctor referral required • Free 24h cancellation</p>
+      </div>
+
+      <!-- 5-Step Progress Indicators -->
+      <div class="max-w-4xl mx-auto flex items-center justify-between relative px-2 sm:px-6">
+        <div class="absolute left-6 right-6 top-4 -translate-y-1/2 h-1 bg-slate-200 -z-0"></div>
+
+        <!-- Indicator 1 -->
+        <div class="wizard-step-indicator flex flex-col items-center relative z-10">
+          <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs bg-teal-600 text-white ring-4 ring-teal-100">
+            1
+          </div>
+          <span class="step-label text-[11px] font-bold text-teal-700 mt-2 hidden sm:block">Select Service</span>
+        </div>
+
+        <!-- Indicator 2 -->
+        <div class="wizard-step-indicator flex flex-col items-center relative z-10">
+          <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs bg-slate-100 text-slate-500 border border-slate-200">
+            2
+          </div>
+          <span class="step-label text-[11px] font-medium text-slate-400 mt-2 hidden sm:block">Choose Specialist</span>
+        </div>
+
+        <!-- Indicator 3 -->
+        <div class="wizard-step-indicator flex flex-col items-center relative z-10">
+          <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs bg-slate-100 text-slate-500 border border-slate-200">
+            3
+          </div>
+          <span class="step-label text-[11px] font-medium text-slate-400 mt-2 hidden sm:block">Date & Time Slot</span>
+        </div>
+
+        <!-- Indicator 4 -->
+        <div class="wizard-step-indicator flex flex-col items-center relative z-10">
+          <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs bg-slate-100 text-slate-500 border border-slate-200">
+            4
+          </div>
+          <span class="step-label text-[11px] font-medium text-slate-400 mt-2 hidden sm:block">Patient Details</span>
+        </div>
+
+        <!-- Indicator 5 -->
+        <div class="wizard-step-indicator flex flex-col items-center relative z-10">
+          <div class="step-circle w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs bg-slate-100 text-slate-500 border border-slate-200">
+            5
+          </div>
+          <span class="step-label text-[11px] font-medium text-slate-400 mt-2 hidden sm:block">Confirmation</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN BOOKING CONTAINER WITH SIDEBAR -->
+  <section class="py-12 bg-white" id="booking-wizard">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Wizard Form Area (Left: 8 cols) -->
+        <div class="lg:col-span-8">
+
+          <!-- ==============================================
+               STEP 1: SELECT SERVICE
+               ============================================== -->
+          <div id="step-1" class="space-y-6">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 font-heading">Step 1: Select Your Treatment or Assessment Type</h2>
+              <p class="text-xs text-slate-500 mt-0.5">Choose the service that best matches your primary clinical requirement.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              <!-- Card: Initial Assessment -->
+              <div class="service-select-card p-5 rounded-2xl border-2 border-teal-600 bg-teal-50/40 ring-2 ring-teal-500/20 cursor-pointer transition flex flex-col justify-between"
+                   data-service-id="initial-assessment"
+                   data-service-name="Comprehensive Biomechanical Assessment & Diagnosis"
+                   data-service-price="$95"
+                   data-service-duration="60 Mins"
+                   data-service-desc="Full 60-min orthopedic exam, posture scan, nerve check & Day 1 hands-on treatment.">
+                <div>
+                  <div class="flex items-start justify-between">
+                    <span class="px-2 py-0.5 rounded bg-teal-100 text-teal-800 text-[10px] font-bold uppercase">Recommended for New Patients</span>
+                    <span class="radio-dot w-4 h-4 rounded-full bg-teal-600 flex items-center justify-center text-white text-[9px] font-bold">✓</span>
+                  </div>
+                  <h3 class="text-base font-bold text-slate-900 font-heading mt-2">Comprehensive Initial Assessment</h3>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Full orthopedic joint tests, motion capture, root-cause diagnosis, and personalized recovery roadmap.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-700">60 Minutes</span>
+                  <span class="font-extrabold text-teal-700 text-sm">$95</span>
+                </div>
+              </div>
+
+              <!-- Card: Spinal Decompression & Sciatica -->
+              <div class="service-select-card p-5 rounded-2xl border border-slate-200 bg-white hover:border-teal-500 cursor-pointer transition flex flex-col justify-between"
+                   data-service-id="spine"
+                   data-service-name="Spinal Decompression & Sciatica Treatment"
+                   data-service-price="$85"
+                   data-service-duration="45 Mins"
+                   data-service-desc="Targeted axial decompression, McKenzie disc therapy & core motor control.">
+                <div>
+                  <div class="flex items-start justify-between">
+                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-[10px] font-bold uppercase">Spine Clinic</span>
+                    <span class="radio-dot hidden w-4 h-4 rounded-full bg-teal-600 text-white text-[9px] font-bold">✓</span>
+                  </div>
+                  <h3 class="text-base font-bold text-slate-900 font-heading mt-2">Spinal Decompression & Sciatica</h3>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">For herniated lumbar discs, acute sciatica nerve pain, spinal stenosis, and postural facet irritation.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-700">45 Minutes</span>
+                  <span class="font-extrabold text-teal-700 text-sm">$85</span>
+                </div>
+              </div>
+
+              <!-- Card: Sports Injury & Return to Play -->
+              <div class="service-select-card p-5 rounded-2xl border border-slate-200 bg-white hover:border-teal-500 cursor-pointer transition flex flex-col justify-between"
+                   data-service-id="sports"
+                   data-service-name="Sports Injury Rehab & Conditioning"
+                   data-service-price="$105"
+                   data-service-duration="60 Mins"
+                   data-service-desc="Force-plate analysis, ACL/rotator cuff recovery & progressive athletic return.">
+                <div>
+                  <div class="flex items-start justify-between">
+                    <span class="px-2 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-bold uppercase">Athletes</span>
+                    <span class="radio-dot hidden w-4 h-4 rounded-full bg-teal-600 text-white text-[9px] font-bold">✓</span>
+                  </div>
+                  <h3 class="text-base font-bold text-slate-900 font-heading mt-2">Sports Injury & Return-to-Play</h3>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">ACL rehabilitation, rotator cuff tendinitis, hamstring tears, ankle sprains, and sport-specific plyometrics.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-700">60 Minutes</span>
+                  <span class="font-extrabold text-teal-700 text-sm">$105</span>
+                </div>
+              </div>
+
+              <!-- Card: Radial Shockwave Therapy -->
+              <div class="service-select-card p-5 rounded-2xl border border-slate-200 bg-white hover:border-teal-500 cursor-pointer transition flex flex-col justify-between"
+                   data-service-id="shockwave"
+                   data-service-name="Radial Shockwave Therapy (ESWT)"
+                   data-service-price="$120"
+                   data-service-duration="45 Mins"
+                   data-service-desc="High-energy acoustic pulses for plantar fasciitis, heel spurs & calcific tendinitis.">
+                <div>
+                  <div class="flex items-start justify-between">
+                    <span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 text-[10px] font-bold uppercase">High-Tech Modality</span>
+                    <span class="radio-dot hidden w-4 h-4 rounded-full bg-teal-600 text-white text-[9px] font-bold">✓</span>
+                  </div>
+                  <h3 class="text-base font-bold text-slate-900 font-heading mt-2">Radial Shockwave Therapy (ESWT)</h3>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Break down chronic tendon adhesions and accelerate new collagen synthesis in plantar fascia and Achilles.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-700">45 Minutes</span>
+                  <span class="font-extrabold text-teal-700 text-sm">$120</span>
+                </div>
+              </div>
+
+              <!-- Card: Post-Op Orthopedic Care -->
+              <div class="service-select-card p-5 rounded-2xl border border-slate-200 bg-white hover:border-teal-500 cursor-pointer transition flex flex-col justify-between"
+                   data-service-id="postop"
+                   data-service-name="Post-Operative Orthopedic Rehabilitation"
+                   data-service-price="$95"
+                   data-service-duration="60 Mins"
+                   data-service-desc="Joint replacement recovery, arthroscopy rehab & swelling management.">
+                <div>
+                  <div class="flex items-start justify-between">
+                    <span class="px-2 py-0.5 rounded bg-teal-100 text-teal-800 text-[10px] font-bold uppercase">Post-Surgery</span>
+                    <span class="radio-dot hidden w-4 h-4 rounded-full bg-teal-600 text-white text-[9px] font-bold">✓</span>
+                  </div>
+                  <h3 class="text-base font-bold text-slate-900 font-heading mt-2">Post-Operative Orthopedic Care</h3>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Safe structured phase-based recovery following total knee/hip arthroplasty, labral repairs, and fusions.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-700">60 Minutes</span>
+                  <span class="font-extrabold text-teal-700 text-sm">$95</span>
+                </div>
+              </div>
+
+              <!-- Card: Follow-Up Therapy Session -->
+              <div class="service-select-card p-5 rounded-2xl border border-slate-200 bg-white hover:border-teal-500 cursor-pointer transition flex flex-col justify-between"
+                   data-service-id="followup"
+                   data-service-name="Standard Follow-Up Physiotherapy Session"
+                   data-service-price="$75"
+                   data-service-duration="40 Mins"
+                   data-service-desc="Hands-on joint mobilization, dry needling, and exercise progression.">
+                <div>
+                  <div class="flex items-start justify-between">
+                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-[10px] font-bold uppercase">Existing Patients</span>
+                    <span class="radio-dot hidden w-4 h-4 rounded-full bg-teal-600 text-white text-[9px] font-bold">✓</span>
+                  </div>
+                  <h3 class="text-base font-bold text-slate-900 font-heading mt-2">Standard Follow-Up Treatment</h3>
+                  <p class="text-xs text-slate-600 mt-1 leading-relaxed">Continuing your established care plan with manual joint mobilization, dry needling, and exercise advancement.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-700">40 Minutes</span>
+                  <span class="font-extrabold text-teal-700 text-sm">$75</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="flex justify-end pt-4">
+              <button data-wizard-nav="next" class="px-8 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-2">
+                <span>Continue to Step 2: Choose Specialist</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- ==============================================
+               STEP 2: CHOOSE SPECIALIST
+               ============================================== -->
+          <div id="step-2" class="space-y-6 hidden">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 font-heading">Step 2: Choose Your Physiotherapist</h2>
+              <p class="text-xs text-slate-500 mt-0.5">Select a specialist based on your condition, or pick any available doctor for earlier dates.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              <!-- Specialist 1: Dr. Elena Vance -->
+              <div class="doctor-select-card p-5 rounded-2xl border-2 border-teal-600 bg-teal-50/40 ring-2 ring-teal-500/20 cursor-pointer transition flex items-start gap-4"
+                   data-doctor-id="dr-elena"
+                   data-doctor-name="Dr. Elena Vance, DPT, OCS"
+                   data-doctor-title="Clinical Director & Spinal Specialist"
+                   data-doctor-fee="Included in Service">
+                <div class="w-14 h-14 rounded-2xl bg-teal-700 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">
+                  EV
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2 py-0.5 rounded bg-teal-100 text-teal-800 text-[10px] font-bold">Spine & Orthopedics</span>
+                    <span class="radio-dot w-4 h-4 rounded-full bg-teal-600 text-white text-[9px] font-bold flex items-center justify-center">✓</span>
+                  </div>
+                  <h4 class="text-base font-bold text-slate-900 font-heading mt-1">Dr. Elena Vance, DPT, OCS</h4>
+                  <p class="text-xs text-slate-500">15+ Yrs • Disc Herniations, Cervical Spine, Sciatica</p>
+                  <p class="text-[11px] text-teal-700 font-semibold mt-2">Available: Central Clinic</p>
+                </div>
+              </div>
+
+              <!-- Specialist 2: Marcus Thorne -->
+              <div class="doctor-select-card p-5 rounded-2xl border border-slate-200 bg-white hover:border-teal-500 cursor-pointer transition flex items-start gap-4"
+                   data-doctor-id="marcus"
+                   data-doctor-name="Marcus Thorne, PT, SCS, CSCS"
+                   data-doctor-title="Sports Medicine Lead"
+                   data-doctor-fee="Included in Service">
+                <div class="w-14 h-14 rounded-2xl bg-sky-700 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">
+                  MT
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-bold">Sports & Athletics</span>
+                    <span class="radio-dot hidden w-4 h-4 rounded-full bg-teal-600 text-white text-[9px] font-bold">✓</span>
+                  </div>
+                  <h4 class="text-base font-bold text-slate-900 font-heading mt-1">Marcus Thorne, PT, SCS</h4>
+                  <p class="text-xs text-slate-500">12+ Yrs • ACL Reconstruction, Tendons, Runners</p>
+                  <p class="text-[11px] text-teal-700 font-semibold mt-2">Available: Sports Wing</p>
+                </div>
+              </div>
+
+              <!-- Specialist 3: Dr. Sarah Reynolds -->
+              <div class="doctor-select-card p-5 rounded-2xl border border-slate-200 bg-white hover:border-teal-500 cursor-pointer transition flex items-start gap-4"
+                   data-doctor-id="sarah"
+                   data-doctor-name="Dr. Sarah Reynolds, DPT, NCS"
+                   data-doctor-title="Neurologic & Vestibular Specialist"
+                   data-doctor-fee="Included in Service">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-700 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">
+                  SR
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">Neuro & Vertigo</span>
+                    <span class="radio-dot hidden w-4 h-4 rounded-full bg-teal-600 text-white text-[9px] font-bold">✓</span>
+                  </div>
+                  <h4 class="text-base font-bold text-slate-900 font-heading mt-1">Dr. Sarah Reynolds, DPT, NCS</h4>
+                  <p class="text-xs text-slate-500">10+ Yrs • BPPV Vertigo, Stroke Recovery, Pelvic Health</p>
+                  <p class="text-[11px] text-teal-700 font-semibold mt-2">Available: Central Clinic</p>
+                </div>
+              </div>
+
+              <!-- Specialist 4: First Available Specialist -->
+              <div class="doctor-select-card p-5 rounded-2xl border border-slate-200 bg-white hover:border-teal-500 cursor-pointer transition flex items-start gap-4"
+                   data-doctor-id="first-available"
+                   data-doctor-name="First Available Senior Physiotherapist"
+                   data-doctor-title="Fastest Triage Scheduling"
+                   data-doctor-fee="Included in Service">
+                <div class="w-14 h-14 rounded-2xl bg-slate-800 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">
+                  ⚡
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-bold">Fastest Booking</span>
+                    <span class="radio-dot hidden w-4 h-4 rounded-full bg-teal-600 text-white text-[9px] font-bold">✓</span>
+                  </div>
+                  <h4 class="text-base font-bold text-slate-900 font-heading mt-1">First Available Senior Clinician</h4>
+                  <p class="text-xs text-slate-500">Get seen at the earliest possible date across our teams.</p>
+                  <p class="text-[11px] text-emerald-700 font-semibold mt-2">Same-day openings prioritised</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="flex items-center justify-between pt-4">
+              <button data-wizard-nav="prev" class="px-6 py-3 border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs rounded-xl transition">
+                &larr; Back to Services
+              </button>
+              <button data-wizard-nav="next" class="px-8 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-2">
+                <span>Continue to Step 3: Date & Time</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- ==============================================
+               STEP 3: DATE & TIME SLOT PICKER
+               ============================================== -->
+          <div id="step-3" class="space-y-6 hidden">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 font-heading">Step 3: Select Date & Available Time Slot</h2>
+              <p class="text-xs text-slate-500 mt-0.5">Pick your preferred appointment day over the upcoming two weeks.</p>
+            </div>
+
+            <!-- Dynamic Days Carousel/Grid -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Upcoming Dates (Click to select):</label>
+              <div id="dates-container" class="grid grid-cols-4 sm:grid-cols-7 gap-2.5">
+                <!-- Injected dynamically by booking.js -->
+              </div>
+            </div>
+
+            <!-- Selected Date Indicator -->
+            <div class="p-3.5 bg-teal-50/70 border border-teal-200/80 rounded-xl flex items-center justify-between text-xs">
+              <span class="text-slate-600">Selected Appointment Date: <strong id="selected-date-display" class="text-teal-900">Please choose a date above</strong></span>
+              <span class="text-slate-600">Selected Time: <strong id="selected-time-display" class="text-teal-900">None selected</strong></span>
+            </div>
+
+            <!-- Time Slots Section -->
+            <div class="space-y-4 pt-2">
+              
+              <!-- Morning Slots -->
+              <div>
+                <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5 mb-2">
+                  <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                  Morning Slots (8:30 AM – 11:30 AM)
+                </span>
+                <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="8:30 AM">8:30 AM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="9:15 AM">9:15 AM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="10:00 AM">10:00 AM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="10:45 AM">10:45 AM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="11:30 AM">11:30 AM</button>
+                </div>
+              </div>
+
+              <!-- Afternoon Slots -->
+              <div>
+                <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5 mb-2">
+                  <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  Afternoon Slots (1:00 PM – 4:00 PM)
+                </span>
+                <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="1:00 PM">1:00 PM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="1:45 PM">1:45 PM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="2:30 PM">2:30 PM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="3:15 PM">3:15 PM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="4:00 PM">4:00 PM</button>
+                </div>
+              </div>
+
+              <!-- Evening Slots -->
+              <div>
+                <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5 mb-2">
+                  <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                  Evening Slots (4:45 PM – 7:30 PM)
+                </span>
+                <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="4:45 PM">4:45 PM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="5:30 PM">5:30 PM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="6:15 PM">6:15 PM</button>
+                  <button type="button" class="time-slot-btn py-2 px-3 rounded-xl border border-slate-200 bg-white text-xs font-semibold hover:border-teal-500 transition" data-time-slot="7:00 PM">7:00 PM</button>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="flex items-center justify-between pt-4">
+              <button data-wizard-nav="prev" class="px-6 py-3 border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs rounded-xl transition">
+                &larr; Back to Specialist
+              </button>
+              <button data-wizard-nav="next" class="px-8 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-2">
+                <span>Continue to Step 4: Patient Details</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- ==============================================
+               STEP 4: PATIENT DETAILS & PAIN SCALE FORM
+               ============================================== -->
+          <div id="step-4" class="space-y-6 hidden">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 font-heading">Step 4: Patient Information & Pain Scale</h2>
+              <p class="text-xs text-slate-500 mt-0.5">Help our clinical team prepare for your diagnostic assessment.</p>
+            </div>
+
+            <form id="patient-details-form" action="https://formsubmit.co/nizamudin1804@gmail.com" method="POST" class="space-y-5">
+  
+  <!-- FormSubmit Hidden Settings -->
+  <input type="hidden" name="_subject" value="New Physiotherapy Appointment Booked!">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-xs font-bold text-slate-700 mb-1">First Name *</label>
+      <input type="text" id="pat-fname" name="First_Name" required placeholder="e.g. David" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none">
+    </div>
+    <div>
+      <label class="block text-xs font-bold text-slate-700 mb-1">Last Name *</label>
+      <input type="text" id="pat-lname" name="Last_Name" required placeholder="e.g. Miller" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none">
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-xs font-bold text-slate-700 mb-1">Email Address (for appointment confirmation) *</label>
+      <input type="email" id="pat-email" name="Patient_Email" required placeholder="david.miller@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none">
+    </div>
+    <div>
+      <label class="block text-xs font-bold text-slate-700 mb-1">Mobile Phone (for SMS reminders) *</label>
+      <input type="tel" id="pat-phone" name="Patient_Phone" required placeholder="(555) 234-5678" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none">
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-xs font-bold text-slate-700 mb-1">Primary Pain Region</label>
+      <select id="pat-pain-area" name="Pain_Region" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none">
+        <option value="Lower Back / Lumbar Spine">Lower Back / Lumbar Spine</option>
+        <option value="Sciatica / Gluteal Nerve">Sciatica / Gluteal Radiating Pain</option>
+        <option value="Neck & Cervical Spine">Neck & Cervical Spine / Headaches</option>
+        <option value="Shoulder / Rotator Cuff">Shoulder / Rotator Cuff</option>
+        <option value="Knee / ACL / Meniscus">Knee / ACL / Patella</option>
+        <option value="Ankle & Plantar Fascia">Ankle & Plantar Fasciitis</option>
+        <option value="Post-Surgical Joint Rehab">Post-Surgical Joint Rehab</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-xs font-bold text-slate-700 mb-1">Health Insurance Provider</label>
+      <select id="pat-insurance" name="Insurance_Provider" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none">
+        <option value="Self-Pay / Private">Self-Pay / Private (Credit/Debit/Cash)</option>
+        <option value="Bupa Health">Bupa Health Insurance</option>
+        <option value="AXA PPP">AXA PPP Healthcare</option>
+        <option value="Cigna Global">Cigna Global</option>
+        <option value="BlueCross BlueShield">BlueCross BlueShield</option>
+        <option value="Medicare">Medicare / Medicaid</option>
+        <option value="Other Provider">Other Private Provider (We provide itemized receipt)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Interactive Pain Level Slider (1 to 10) -->
+  <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+    <div class="flex items-center justify-between mb-2">
+      <label class="text-xs font-bold text-slate-800">Current Pain Severity Score (0 to 10 Scale)</label>
+      <span id="pain-value-display" class="px-2.5 py-0.5 rounded-md bg-teal-100 text-teal-800 font-extrabold text-xs">5/10</span>
+    </div>
+    <input type="range" id="pain-range-slider" name="Pain_Level" min="1" max="10" value="5" class="pain-slider mt-2">
+    <div class="flex justify-between text-[10px] text-slate-400 mt-1.5 font-semibold">
+      <span>1: Mild Discomfort</span>
+      <span>5: Moderate / Distracting</span>
+      <span>10: Incapacitating / Severe</span>
+    </div>
+    <p id="pain-severity-text" class="text-xs font-semibold mt-2 text-amber-600">
+      Moderate Pain (Limits daily activities or prolonged work)
+    </p>
+  </div>
+
+  <div>
+    <label class="block text-xs font-bold text-slate-700 mb-1">Any relevant medical history, prior imaging (MRI/X-Ray) or surgeon instructions?</label>
+    <textarea id="pat-notes" name="Medical_Notes" rows="3" placeholder="e.g., MRI showed L4-L5 protrusion 3 months ago. Worse in mornings. Surgeon requested conservative physio." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none"></textarea>
+  </div>
+
+  <div class="flex items-center justify-between pt-4">
+    <button type="button" data-wizard-nav="prev" class="px-6 py-3 border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs rounded-xl transition">
+      &larr; Back to Date & Time
+    </button>
+    <button type="submit" class="px-8 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl shadow-md transition flex items-center gap-2">
+      <span>Confirm & Schedule Appointment</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    </button>
+  </div>
+
+</form>
+          </div>
+
+          <!-- ==============================================
+               STEP 5: CONFIRMATION SCREEN
+               ============================================== -->
+          <div id="step-5" class="space-y-6 hidden">
+            
+            <div class="p-8 rounded-3xl bg-teal-50/70 border border-teal-200 text-center">
+              <div class="w-16 h-16 mx-auto rounded-full bg-teal-600 text-white flex items-center justify-center text-2xl font-bold shadow-lg shadow-teal-600/30 mb-4 animate-bounce">
+                ✓
+              </div>
+              <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full uppercase tracking-wider mb-2">
+                Booking Confirmed
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
+                Your Physiotherapy Session is Scheduled!
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 max-w-lg mx-auto leading-relaxed">
+                A confirmation SMS and calendar invite have been sent. Our clinical triage desk has reserved your slot with the specialist.
+              </p>
+
+              <!-- Reference Card -->
+              <div class="mt-6 p-5 rounded-2xl bg-white border border-teal-100 shadow-sm max-w-md mx-auto text-left space-y-2.5 text-xs">
+                <div class="flex justify-between pb-2 border-b border-slate-100">
+                  <span class="text-slate-500">Booking Reference:</span>
+                  <span id="confirm-ref-code" class="font-mono font-bold text-teal-700 text-sm">KP-94821</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-500">Service:</span>
+                  <span id="confirm-service-name" class="font-bold text-slate-800">Initial Assessment</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-500">Physiotherapist:</span>
+                  <span id="confirm-doctor-name" class="font-bold text-slate-800">Dr. Elena Vance</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-500">Date & Slot:</span>
+                  <span id="confirm-datetime" class="font-bold text-teal-800">Thursday, Oct 23 @ 10:00 AM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-500">Patient:</span>
+                  <span id="confirm-patient-name" class="font-bold text-slate-800">David Miller</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-500">Contact:</span>
+                  <span id="confirm-patient-contact" class="text-slate-600">david@example.com</span>
+                </div>
+                <div class="flex justify-between pt-2 border-t border-slate-100">
+                  <span class="text-slate-500">Pain Complaint:</span>
+                  <span id="confirm-pain-area" class="font-semibold text-slate-700">Lower Back (5/10)</span>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+                <button onclick="window.print()" class="px-5 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs transition shadow-sm flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                  Print Appointment Slip
+                </button>
+                <button class="open-appointments-drawer px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs transition shadow-md flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                  View in My Sessions Drawer
+                </button>
+                <a href="exercises.html" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition">
+                  Browse Pre-Care Exercises &rarr;
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Sticky Appointment Summary Sidebar (Right: 4 cols) -->
+        <div class="lg:col-span-4 sticky top-28">
+          <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 shadow-sm space-y-4">
+            
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+              <h3 class="font-bold text-slate-900 font-heading text-sm">Appointment Summary</h3>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <span class="text-slate-400 block font-semibold text-[10px] uppercase tracking-wider">Selected Service</span>
+                <p id="summary-service-name" class="font-bold text-slate-900 mt-0.5">Comprehensive Biomechanical Assessment</p>
+              </div>
+
+              <div>
+                <span class="text-slate-400 block font-semibold text-[10px] uppercase tracking-wider">Clinician</span>
+                <p id="summary-doctor-name" class="font-bold text-slate-900 mt-0.5">Dr. Elena Vance, DPT, OCS</p>
+              </div>
+
+              <div>
+                <span class="text-slate-400 block font-semibold text-[10px] uppercase tracking-wider">Date & Time</span>
+                <p id="summary-datetime" class="font-bold text-slate-900 mt-0.5">Select in Step 3</p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200">
+                <div>
+                  <span class="text-slate-400 block font-semibold text-[10px] uppercase tracking-wider">Duration</span>
+                  <p id="summary-duration" class="font-bold text-slate-800 mt-0.5">60 Mins</p>
+                </div>
+                <div>
+                  <span class="text-slate-400 block font-semibold text-[10px] uppercase tracking-wider">Total Fee</span>
+                  <p id="summary-price" class="font-extrabold text-teal-700 text-base mt-0.5">$95</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Clinic Location Card -->
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200 text-xs space-y-1">
+              <p class="font-bold text-slate-800 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                KineticPulse Central Clinic
+              </p>
+              <p class="text-slate-500 text-[11px]">450 Health Sciences Parkway, Suite 300</p>
+              <p class="text-[10px] text-teal-700 font-semibold">Free Onsite Patient Parking</p>
+            </div>
+
+            <!-- Cancellation Policy Note -->
+            <p class="text-[10px] text-slate-400 leading-tight">
+              Free rescheduling or cancellation up to 24 hours prior to appointment. Direct insurance billing available at reception desk.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-white font-bold text-sm">KineticPulse Physiotherapy & Sports Rehabilitation</p>
+        <p class="text-slate-500 mt-1">Evidence-Based Musculoskeletal, Spine, and Orthopedic Care.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="services.html" class="hover:text-teal-400">Services</a>
+        <a href="conditions.html" class="hover:text-teal-400">Conditions</a>
+        <a href="about.html" class="hover:text-teal-400">Specialists</a>
+        <a href="booking.html" class="hover:text-teal-400">Book Online</a>
+        <a href="contact.html" class="hover:text-teal-400">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Application Scripts & Booking Engine -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
+</body>
+</html>

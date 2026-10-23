@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions Treated & Clinical Symptom Index | KineticPulse Physiotherapy</title>
+  <meta name="description" content="Detailed clinical guide for conditions treated at KineticPulse: sciatica, disc herniations, rotator cuff tears, ACL injuries, plantar fasciitis, and neck pain.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-teal-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-4 text-[11px] sm:text-xs">
+        <span class="flex items-center gap-1.5 text-teal-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+          Emergency Triage & Same-Day Clinical Appointments
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] sm:text-xs">
+        <a href="tel:+18005557497" class="hover:text-teal-400 transition flex items-center gap-1 font-semibold text-white">
+          <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          (800) 555-PHYS
+        </a>
+        <button class="open-appointments-drawer relative flex items-center gap-1.5 px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-teal-300 rounded-md transition font-medium">
+          <span>My Sessions</span>
+          <span class="my-appointments-count hidden w-4 h-4 rounded-full bg-teal-500 text-white text-[10px] font-bold flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-40 glass-nav shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-teal-700 to-teal-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <div>
+            <span class="text-xl font-extrabold text-slate-900 tracking-tight font-heading flex items-center gap-1">Kinetic<span class="text-teal-600">Pulse</span></span>
+            <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest -mt-1">Physiotherapy Clinic</span>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+          <a href="index.html" class="hover:text-teal-600 transition">Home</a>
+          <a href="services.html" class="hover:text-teal-600 transition">Services & Treatments</a>
+          <a href="conditions.html" class="hover:text-teal-600 transition font-bold text-teal-600">Conditions Treated</a>
+          <a href="about.html" class="hover:text-teal-600 transition">About Our Team</a>
+          <a href="exercises.html" class="hover:text-teal-600 transition">Rehab Exercises</a>
+          <a href="case-studies.html" class="hover:text-teal-600 transition">Recovery Stories</a>
+          <a href="pricing.html" class="hover:text-teal-600 transition">Pricing & Insurance</a>
+          <a href="blog.html" class="hover:text-teal-600 transition">Blog</a>
+          <a href="contact.html" class="hover:text-teal-600 transition">Contact</a>
+        </nav>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="booking.html" class="text-xs font-bold px-4 py-2.5 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white rounded-xl shadow-md transition">
+            Book Appointment
+          </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 hover:text-slate-900">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden"></div>
+  <div id="mobile-menu" class="fixed top-0 right-0 w-80 max-w-full h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
+    <div class="p-6 overflow-y-auto">
+      <div class="flex items-center justify-between pb-6 border-b border-slate-100">
+        <span class="font-bold text-slate-900 font-heading">KineticPulse Physio</span>
+        <button id="close-mobile-menu" class="p-1.5 text-slate-400 hover:text-slate-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      <nav class="mt-6 flex flex-col gap-3 text-sm font-semibold text-slate-700">
+        <a href="index.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Home</a>
+        <a href="services.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Services & Treatments</a>
+        <a href="conditions.html" class="px-3 py-2 rounded-lg bg-teal-50 text-teal-700">Conditions Treated</a>
+        <a href="about.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">About Our Specialists</a>
+        <a href="exercises.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Rehab Exercises</a>
+        <a href="case-studies.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Clinical Case Studies</a>
+        <a href="pricing.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Pricing & Insurance</a>
+        <a href="blog.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Blog & Articles</a>
+        <a href="contact.html" class="px-3 py-2 rounded-lg hover:bg-slate-50">Locations & Contact</a>
+      </nav>
+      <div class="mt-6 pt-6 border-t border-slate-100">
+        <a href="booking.html" class="w-full block text-center py-3 bg-teal-600 text-white text-xs font-bold rounded-xl shadow">Book Appointment</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="mesh-bg py-16 lg:py-20 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-block px-3 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded-full uppercase tracking-wider mb-3">
+          Clinical Conditions Guide
+        </span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 font-heading tracking-tight">
+          What Is Causing Your Pain?
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed">
+          Search below or browse by body area to understand the underlying mechanics, common warning signs, and our evidence-based clinical treatment pathways.
+        </p>
+
+        <!-- Live Search Bar -->
+        <div class="mt-8 relative max-w-xl">
+          <input type="text" id="condition-search-box" placeholder="Search by symptom or condition (e.g., 'sciatica', 'knee click', 'rotator cuff')..." class="w-full pl-12 pr-4 py-3.5 rounded-2xl border border-slate-200 bg-white text-sm shadow-sm focus:ring-2 focus:ring-teal-500 focus:outline-none">
+          <svg class="w-5 h-5 text-slate-400 absolute left-4 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+      </div>
+
+      <!-- Region Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-2 mt-10" id="condition-region-pills">
+        <button onclick="filterConditions('all')" class="cond-pill active px-4 py-2 rounded-xl text-xs font-bold bg-teal-600 text-white shadow-sm transition">
+          All Regions (12)
+        </button>
+        <button onclick="filterConditions('spine')" class="cond-pill px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-teal-500 shadow-sm transition">
+          Lower Back & Lumbar Spine
+        </button>
+        <button onclick="filterConditions('neck')" class="cond-pill px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-teal-500 shadow-sm transition">
+          Neck, Cervical & Headaches
+        </button>
+        <button onclick="filterConditions('shoulder')" class="cond-pill px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-teal-500 shadow-sm transition">
+          Shoulder & Elbow
+        </button>
+        <button onclick="filterConditions('knee')" class="cond-pill px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-teal-500 shadow-sm transition">
+          Knee & Hip Joint
+        </button>
+        <button onclick="filterConditions('foot')" class="cond-pill px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 border border-slate-200 hover:border-teal-500 shadow-sm transition">
+          Foot & Ankle
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONDITIONS LIST -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="conditions-grid">
+        
+        <!-- Condition 1: Lumbar Disc Herniation -->
+        <div class="condition-card" data-region="spine" data-name="lumbar disc herniation sciatica pinched nerve back pain">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-teal-100 text-teal-800 text-[10px] font-bold uppercase tracking-wider">Lumbar Spine</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 4–6 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Lumbar Disc Bulge & Herniation (L4-L5, L5-S1)</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Inner nucleus pulposus protrudes through weakened outer disc rings, compressing spinal thecal sacs or descending nerve roots.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Sharp lower back ache, electric buttock pain, numbness in big toe or foot, pain aggravated by coughing.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">McKenzie directional preference exercises, manual pelvic traction, neurodynamic flossing, and deep multifidus recruitment.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-700">92% Non-Surgical Success</span>
+              <a href="booking.html?service=spine" class="px-3.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 2: Sciatica & Piriformis Syndrome -->
+        <div class="condition-card" data-region="spine" data-name="sciatica piriformis syndrome nerve pain glute buttock pain">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-teal-100 text-teal-800 text-[10px] font-bold uppercase tracking-wider">Nerve Entrapment</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 3–5 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Sciatica & Piriformis Impingement</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Irritation or entrapment of the sciatic nerve beneath a tight, hypertonic piriformis muscle in the deep gluteal space.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Deep burning ache in buttocks radiating down the posterior hamstring to the calf; unbearable during car driving.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Biomedical dry needling to piriformis, sciatic neural glides, sacrococcygeal mobilization, and hip rotator strengthening.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">Rapid Relief Protocol</span>
+              <a href="booking.html?service=spine" class="px-3.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 3: Cervical Radiculopathy & Text Neck -->
+        <div class="condition-card" data-region="neck" data-name="cervical radiculopathy text neck stiff neck pin and needles arm tingling">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-teal-100 text-teal-800 text-[10px] font-bold uppercase tracking-wider">Cervical Spine</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 3–4 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Cervical Radiculopathy & Postural Text Neck</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Nerve root compression in the cervical vertebrae (C5-C7) caused by prolonged forward-head posture and facet arthrosis.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Neck stiffness, shoulder blade pain, pins-and-needles down the arm into the thumb/index finger, grip weakness.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Manual cervical traction, deep neck flexor motor retraining, thoracic extension mobilization, and ergonomic coaching.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-teal-700">Immediate Traction</span>
+              <a href="booking.html?service=cervical" class="px-3.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 4: Cervicogenic Headaches -->
+        <div class="condition-card" data-region="neck" data-name="cervicogenic headaches migraine tension neck base skull occipital">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-teal-100 text-teal-800 text-[10px] font-bold uppercase tracking-wider">Headache Clinic</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 2–4 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Cervicogenic & Tension-Type Headaches</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Referred pain originating from the C1-C3 cervical spine segments and hypertonic suboccipital musculature wrapping over the skull.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Dull, band-like tightness around forehead, pain radiating from base of skull behind one eye, aggravated by neck posture.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Upper cervical SNAGs (Mulligan technique), suboccipital trigger point release, dry needling, and posture retraining.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">No Medications Required</span>
+              <a href="booking.html?service=cervical" class="px-3.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 5: Rotator Cuff Tears & Tendinopathy -->
+        <div class="condition-card" data-region="shoulder" data-name="rotator cuff tear tendinopathy supraspinatus shoulder pain overhead reach">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-bold uppercase tracking-wider">Shoulder Joint</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 6–8 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Rotator Cuff Tears & Supraspinatus Tendinitis</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Degenerative wear or acute trauma to the supraspinatus, infraspinatus, or subscapularis stabilizing tendons of the glenohumeral joint.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Pain arc between 60° and 120° of arm abduction, nighttime throbbing when sleeping on shoulder, inability to lift arm overhead.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Radial Shockwave therapy (ESWT) for tendon remodeling, scapulothoracic strengthening, and eccentric rotator cuff drills.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-sky-700">Shockwave Eligible</span>
+              <a href="booking.html?service=shoulder" class="px-3.5 py-1.5 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 6: Frozen Shoulder (Adhesive Capsulitis) -->
+        <div class="condition-card" data-region="shoulder" data-name="frozen shoulder adhesive capsulitis stiff shoulder cannot reach back">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-bold uppercase tracking-wider">Capsular Care</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 8–12 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Adhesive Capsulitis (Frozen Shoulder)</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Progressive thickening, fibrosis, and contracture of the glenohumeral joint capsule, causing severe global loss of movement.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Severe loss of passive and active external rotation, inability to fasten a bra or reach for back pocket, acute nighttime ache.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">High-grade capsular distraction mobilizations, Class IV deep laser to break fibrosis, and progressive end-range home pendulums.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">Multi-Modal Protocol</span>
+              <a href="booking.html?service=shoulder" class="px-3.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 7: ACL & Meniscus Tears -->
+        <div class="condition-card" data-region="knee" data-name="acl tear meniscus tear knee pop knee swelling knee giving way">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-wider">Sports Knee</span>
+                <span class="text-[11px] font-semibold text-slate-500">Phased: 6–9 Mos</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">ACL Tear & Meniscus Pathology</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Rupture of the anterior cruciate ligament or fibrocartilage meniscus tear during high-velocity pivoting, cutting, or hyperextension.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Audible 'pop' at moment of injury, rapid knee effusion (swelling) within 2 hours, knee buckling/giving way on stairs.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Pre-hab swelling reduction, post-operative quad activation (NMES), hamstring graft protection, and force plate hop clearance.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-700">Pre & Post-Op Program</span>
+              <a href="booking.html?service=sports" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 8: Patellofemoral Pain (Runner's Knee) -->
+        <div class="condition-card" data-region="knee" data-name="patellofemoral runners knee kneecap grinding stairs knee pain squatting">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-wider">Patellofemoral</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 4–6 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Patellofemoral Pain Syndrome (Runner's Knee)</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Abnormal lateral tracking of the patella within the femoral trochlear groove, creating excessive retropatellar cartilage stress.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Dull anterior kneecap ache aggravated by descending stairs, running, deep squats, or sitting through long movies ('theater sign').</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Gluteus medius and VMO targeted strengthening, IT band myofascial unloading, McConnell patella taping, and gait retuning.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">Biomechanical Retraining</span>
+              <a href="booking.html?service=knee" class="px-3.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 9: Plantar Fasciitis & Heel Spurs -->
+        <div class="condition-card" data-region="foot" data-name="plantar fasciitis heel spur morning heel pain bottom foot arch ache">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-indigo-100 text-indigo-800 text-[10px] font-bold uppercase tracking-wider">Foot & Heel</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 4–6 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Chronic Plantar Fasciitis & Heel Spurs</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Micro-tears and chronic degenerative collagen degeneration at the calcaneal insertion of the thick plantar aponeurosis.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Excruciating stabbing heel pain with the first steps out of bed in the morning; dull ache returning after prolonged standing.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Extracorporeal Shockwave Therapy (ESWT), high-load toe-elevated calf raises, night splints, and custom orthotic foot mapping.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-indigo-700">88% Shockwave Cure</span>
+              <a href="booking.html?service=shockwave" class="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 10: Achilles Tendinopathy -->
+        <div class="condition-card" data-region="foot" data-name="achilles tendinopathy tendonitis heel cord pain ankle stiffness">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-indigo-100 text-indigo-800 text-[10px] font-bold uppercase tracking-wider">Ankle Tendon</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 6–8 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Achilles Tendinopathy (Mid-Portion & Insertional)</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Failed healing response characterized by collagen disorientation and hyper-vascularity in the thickest tendon in the human body.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Morning tendon stiffness, localized nodular thickening 2–6 cm above heel, painful push-off during walking or running.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Alfredson eccentric loading protocol, heavy-slow resistance (HSR), shockwave therapy, and running cadence optimization.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">Eccentric Protocol</span>
+              <a href="booking.html?service=ankle" class="px-3.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 11: Tennis Elbow (Lateral Epicondylalgia) -->
+        <div class="condition-card" data-region="shoulder" data-name="tennis elbow lateral epicondylalgia elbow pain grip weakness forearm pain">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-sky-100 text-sky-800 text-[10px] font-bold uppercase tracking-wider">Upper Extremity</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 3–5 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Lateral Epicondylalgia (Tennis Elbow)</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Overuse tendinopathy of the extensor carpi radialis brevis (ECRB) origin, common in desk workers, racquet sports, and tradespeople.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Point tenderness on the outer bony elbow knob, burning pain when gripping coffee mugs, weak wrist extension against resistance.</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Mulligan Mobilization with Movement (MWM), Tyler Twist eccentric wrist extensor bar exercises, and dry needling.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500">Immediate Joint Glides</span>
+              <a href="booking.html?service=shoulder" class="px-3.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 12: Hip Impingement (FAI) & Labral Tear -->
+        <div class="condition-card" data-region="knee" data-name="hip impingement fai femoroacetabular labral tear groin pain hip pinch">
+          <div class="p-7 rounded-3xl bg-slate-50 border border-slate-200/90 h-full flex flex-col justify-between hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-wider">Hip Joint</span>
+                <span class="text-[11px] font-semibold text-slate-500">Recovery: 6–8 Wks</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 font-heading">Femoroacetabular Impingement (FAI) & Labrum</h3>
+              <p class="text-xs text-slate-600 mt-2">
+                Mechanical friction between the femoral head and acetabulum rim (cam or pincer morphology), pinching the stabilizing hip labrum.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-200/60 space-y-2 text-xs">
+                <div>
+                  <strong class="text-slate-800">Primary Symptoms:</strong>
+                  <p class="text-slate-600 mt-0.5">Deep groin pinching during low squats or prolonged seated posture; pain with internal hip rotation ('C-sign' hand grip).</p>
+                </div>
+                <div>
+                  <strong class="text-slate-800">Physiotherapy Approach:</strong>
+                  <p class="text-slate-600 mt-0.5">Manual inferior hip distraction glides, deep pelvic rotator motor retraining, avoiding impingement arcs, and core stability.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-700">Joint Preserving Physio</span>
+              <a href="booking.html?service=hip" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition">
+                Book Treatment &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RED FLAGS & WHEN TO SEEK EMERGENCY CARE -->
+  <section class="py-16 bg-slate-100 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-6 sm:p-8 rounded-3xl bg-amber-50/80 border border-amber-200">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-amber-200 text-amber-900 flex items-center justify-center flex-shrink-0 font-bold">
+            !
+          </div>
+          <div>
+            <h4 class="text-base font-bold text-amber-950 font-heading">Clinical Red Flag Notice: When to Seek Immediate Emergency Hospital Care</h4>
+            <p class="text-xs text-amber-900/80 mt-1.5 leading-relaxed">
+              While physiotherapists excel at treating musculoskeletal conditions, certain signs suggest emergency medical issues (e.g. Cauda Equina Syndrome, vascular occlusion, or fractures). Please proceed directly to the nearest A&E / Emergency Department if you experience:
+            </p>
+            <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-amber-950">
+              <li class="flex items-center gap-1.5">• Sudden loss of bowel or bladder control</li>
+              <li class="flex items-center gap-1.5">• Numbness in the saddle area (inner thighs/groin)</li>
+              <li class="flex items-center gap-1.5">• Rapid progressive bilateral leg paralysis or foot drop</li>
+              <li class="flex items-center gap-1.5">• Severe unremitting night pain with fever & chills</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-white font-bold text-sm">KineticPulse Physiotherapy & Sports Rehabilitation</p>
+        <p class="text-slate-500 mt-1">Evidence-Based Musculoskeletal, Spine, and Orthopedic Care.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="services.html" class="hover:text-teal-400">Services</a>
+        <a href="conditions.html" class="hover:text-teal-400">Conditions</a>
+        <a href="about.html" class="hover:text-teal-400">Specialists</a>
+        <a href="booking.html" class="hover:text-teal-400">Book Online</a>
+        <a href="contact.html" class="hover:text-teal-400">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Conditions Filter & Search Script -->
+  <script>
+    let activeRegion = 'all';
+    let searchQuery = '';
+
+    function filterConditions(region) {
+      activeRegion = region;
+      const pills = document.querySelectorAll('.cond-pill');
+      pills.forEach(p => {
+        p.classList.remove('active', 'bg-teal-600', 'text-white');
+        p.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      });
+      event.currentTarget.classList.add('active', 'bg-teal-600', 'text-white');
+      event.currentTarget.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      applyFilters();
+    }
+
+    const searchBox = document.getElementById('condition-search-box');
+    if (searchBox) {
+      searchBox.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        applyFilters();
+      });
+    }
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.condition-card');
+      cards.forEach(card => {
+        const matchesRegion = activeRegion === 'all' || card.dataset.region === activeRegion;
+        const matchesSearch = !searchQuery || card.dataset.name.toLowerCase().includes(searchQuery);
+
+        if (matchesRegion && matchesSearch) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Check URL parameters (e.g. ?area=neck)
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const area = params.get('area');
+      if (area) {
+        const targetBtn = Array.from(document.querySelectorAll('.cond-pill')).find(b => b.textContent.toLowerCase().includes(area));
+        if (targetBtn) targetBtn.click();
+      }
+    });
+  </script>
+
+  <!-- Global Application Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
